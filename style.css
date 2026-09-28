@@ -1,0 +1,637 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f8fc;
+  color: #172033;
+  line-height: 1.6;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 7%;
+
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid #e5eaf0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo span {
+  font-size: 35px;
+}
+
+.logo h1 {
+  font-size: 22px;
+}
+
+.logo p {
+  font-size: 12px;
+  color: #657083;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a,
+.footer-links a {
+  color: #172033;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover,
+.footer-links a:hover {
+  color: #1479ff;
+}
+
+.hero {
+  min-height: 620px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 50px;
+
+  padding: 80px 7%;
+
+  background:
+    linear-gradient(135deg, #dff3ff, #ffffff);
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.tag {
+  color: #1479ff;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.hero h2 {
+  font-size: clamp(45px, 7vw, 80px);
+  line-height: 1.05;
+  margin-bottom: 25px;
+}
+
+.hero h2 span {
+  color: #1479ff;
+}
+
+.hero-content > p:not(.tag) {
+  font-size: 18px;
+  color: #596579;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+
+  padding: 13px 25px;
+
+  background: #1479ff;
+  color: white;
+
+  text-decoration: none;
+  font-weight: bold;
+
+  border-radius: 10px;
+
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.weather-card {
+  width: 330px;
+  min-height: 380px;
+
+  padding: 35px;
+
+  text-align: center;
+
+  border-radius: 25px;
+
+  background: rgba(255,255,255,0.8);
+
+  box-shadow: 0 20px 50px rgba(20,70,120,0.15);
+
+  border: 1px solid white;
+}
+
+.sun {
+  font-size: 75px;
+  margin-bottom: 10px;
+}
+
+.weather-card h3 {
+  font-size: 28px;
+}
+
+.date {
+  color: #687386;
+}
+
+.temp {
+  font-size: 70px;
+  font-weight: bold;
+
+  margin: 20px 0;
+
+  color: #1479ff;
+}
+
+.section {
+  padding: 90px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-title p {
+  color: #1479ff;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.section-title h2 {
+  font-size: 42px;
+  margin-top: 5px;
+}
+
+.weather-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.info-card {
+  padding: 30px;
+
+  text-align: center;
+
+  background: white;
+
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(20,40,80,0.08);
+
+  transition: 0.3s;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+}
+
+.info-card div {
+  font-size: 40px;
+}
+
+.info-card h3 {
+  margin: 10px 0;
+}
+
+.info-card strong {
+  display: block;
+
+  font-size: 32px;
+
+  color: #1479ff;
+}
+
+.info-card p {
+  color: #758093;
+}
+
+.dark-section {
+  background: #111c2e;
+  color: white;
+}
+
+.dark-section .section-title p {
+  color: #6eb4ff;
+}
+
+.alert-box {
+  max-width: 900px;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: #1d2b42;
+}
+
+.alert-icon {
+  font-size: 55px;
+}
+
+.alert-box p {
+  color: #c4cfdd;
+  margin: 10px 0;
+}
+
+.alert-box a {
+  color: #6eb4ff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.radar-card {
+  max-width: 1000px;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  gap: 60px;
+
+  padding: 50px;
+
+  background: white;
+
+  border-radius: 25px;
+
+  box-shadow: 0 15px 40px rgba(20,40,80,0.08);
+}
+
+.radar-circle {
+  min-width: 220px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(circle,
+    #e7f5ff 5%,
+    #c4e8ff 30%,
+    #8bc9ff 55%,
+    #4da2ff 100%);
+}
+
+.radar-circle span {
+  font-size: 50px;
+}
+
+.radar-circle p {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.radar-text h3 {
+  font-size: 30px;
+}
+
+.radar-text p {
+  color: #657083;
+  margin: 15px 0;
+}
+
+.radar-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.radar-points span {
+  padding: 8px 12px;
+
+  background: #edf6ff;
+
+  border-radius: 20px;
+
+  color: #1479ff;
+
+  font-weight: bold;
+}
+
+.forecast {
+  background: #edf5fb;
+}
+
+.forecast-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(7, 1fr);
+
+  gap: 12px;
+}
+
+.day {
+  padding: 22px 10px;
+
+  text-align: center;
+
+  background: white;
+
+  border-radius: 15px;
+}
+
+.day h3 {
+  font-size: 14px;
+}
+
+.day span {
+  display: block;
+  font-size: 35px;
+  margin: 10px 0;
+}
+
+.day strong {
+  font-size: 25px;
+  color: #1479ff;
+}
+
+.day p {
+  font-size: 12px;
+  color: #788496;
+}
+
+.news-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+.news-grid article {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(20,40,80,0.07);
+}
+
+.news-grid article > span {
+  font-size: 45px;
+}
+
+.news-grid h3 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.news-grid p {
+  color: #687386;
+}
+
+.news-grid a {
+  display: inline-block;
+
+  margin-top: 15px;
+
+  color: #1479ff;
+
+  text-decoration: none;
+
+  font-weight: bold;
+}
+
+.about {
+  background:
+    linear-gradient(135deg, #dff3ff, #ffffff);
+}
+
+.about-content {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-content > p:first-child {
+  color: #1479ff;
+  font-weight: bold;
+}
+
+.about h2 {
+  font-size: 50px;
+  line-height: 1.1;
+  margin: 15px 0 25px;
+}
+
+.about h2 span {
+  color: #1479ff;
+}
+
+.about-content p {
+  color: #596579;
+  margin-bottom: 20px;
+}
+
+footer {
+  padding: 50px 7%;
+
+  text-align: center;
+
+  background: #0b1422;
+
+  color: white;
+}
+
+footer h2 {
+  margin-bottom: 5px;
+}
+
+footer > p {
+  color: #aeb9c8;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 25px 0;
+}
+
+.footer-links a {
+  color: white;
+}
+
+.copyright {
+  font-size: 13px;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+  .header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .weather-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .forecast-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .radar-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding: 55px 5%;
+  }
+
+  .hero h2 {
+    font-size: 45px;
+  }
+
+  .weather-card {
+    width: 100%;
+  }
+
+  .section {
+    padding: 60px 5%;
+  }
+
+  .section-title h2 {
+    font-size: 32px;
+  }
+
+  .weather-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .forecast-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .radar-card {
+    padding: 30px 20px;
+  }
+
+  .radar-circle {
+    min-width: 180px;
+    height: 180px;
+  }
+
+  .about h2 {
+    font-size: 38px;
+  }
+
+}.hourly-grid {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 5px 25px;
+}
+
+.hour-card {
+  min-width: 130px;
+  padding: 22px 15px;
+  text-align: center;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(20, 40, 80, 0.08);
+}
+
+.hour-card h3 {
+  font-size: 14px;
+  color: #657083;
+}
+
+.hour-card span {
+  display: block;
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.hour-card strong {
+  display: block;
+  font-size: 25px;
+  color: #1479ff;
+}
+
+.hour-card p {
+  margin: 8px 0;
+  color: #1479ff;
+}
+
+.hour-card small {
+  color: #687386;
+}
+
+@media (max-width: 600px) {
+
+  .hourly-grid {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .hour-card {
+    min-width: 115px;
+  }
+
+}
