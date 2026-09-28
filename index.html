@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankit Mausam | Weather Information</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">
+    <span>🌦️</span>
+    <div>
+      <h1>Ankit Mausam</h1>
+      <p>Weather Information Portal</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#weather">Weather</a>
+    <a href="#alerts">Alerts</a>
+    <a href="#radar">Radar</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<main>
+
+<section id="home" class="hero">
+  <div class="hero-content">
+    <p class="tag">🌍 Weather Information & Updates</p>
+    <h2>Know Your Weather.<br><span>Stay Prepared.</span></h2>
+
+    <p>
+      Ankit Mausam provides weather information, rainfall updates,
+      alerts and educational information about weather systems.
+    </p>
+
+    <a class="btn" href="#weather">Check Weather ↓</a>
+  </div>
+
+  <div class="weather-card">
+    <div class="sun">☀️</div>
+    <h3>Bahraich</h3>
+    <p class="date" id="date"></p>
+    <div class="temp">--°C</div>
+    <p>Weather data will appear here</p>
+  </div>
+</section>
+
+<section id="weather" class="section">
+  <div class="section-title">
+    <p>📍 LOCAL WEATHER</p>
+    <h2>Bahraich Weather</h2>
+  </div>
+
+  <div class="weather-grid">
+
+    <div class="info-card">
+      <div>🌡️</div>
+      <h3>Temperature</h3>
+      <strong>--°C</strong>
+      <p>Live data coming soon</p>
+    </div>
+
+    <div class="info-card">
+      <div>💧</div>
+      <h3>Humidity</h3>
+      <strong>--%</strong>
+      <p>Live data coming soon</p>
+    </div>
+
+    <div class="info-card">
+      <div>💨</div>
+      <h3>Wind</h3>
+      <strong>-- km/h</strong>
+      <p>Live data coming soon</p>
+    </div>
+
+    <div class="info-card">
+      <div>🌧️</div>
+      <h3>Rain Chance</h3>
+      <strong>--%</strong>
+      <p>Live data coming soon</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="alerts" class="section dark-section">
+
+  <div class="section-title">
+    <p>⚠️ WEATHER INFORMATION</p>
+    <h2>Weather Alerts</h2>
+  </div>
+
+  <div class="alert-box">
+    <div class="alert-icon">⚠️</div>
+
+    <div>
+      <h3>Official Weather Alerts</h3>
+      <p>
+        Always verify severe-weather warnings through official
+        government meteorological sources before taking action.
+      </p>
+
+      <a href="https://mausam.imd.gov.in/" target="_blank">
+        Visit IMD Website →
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<section id="radar" class="section">
+
+  <div class="section-title">
+    <p>🛰️ WEATHER MONITORING</p>
+    <h2>Radar & Weather Systems</h2>
+  </div>
+
+  <div class="radar-card">
+
+    <div class="radar-circle">
+      <span>🛰️</span>
+      <p>RADAR</p>
+    </div>
+
+    <div class="radar-text">
+      <h3>Understanding Weather Radar</h3>
+
+      <p>
+        Weather radar helps meteorologists observe precipitation
+        and its movement. Radar images can be useful for monitoring
+        rain-bearing clouds and thunderstorms.
+      </p>
+
+      <div class="radar-points">
+        <span>🌧️ Rain</span>
+        <span>⛈️ Thunderstorms</span>
+        <span>💨 Wind Systems</span>
+        <span>☁️ Clouds</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section forecast">
+
+  <div class="section-title">
+    <p>📅 FORECAST</p>
+    <h2>7-Day Weather Outlook</h2>
+  </div>
+
+  <div class="forecast-grid">
+
+    <div class="day">
+      <h3>MON</h3>
+      <span>☀️</span>
+      <strong>--°</strong>
+      <p>Data unavailable</p>
+    </div>
+
+    <div class="day">
+      <h3>TUE</h3>
+      <span>🌤️</span>
+      <strong>--°</strong>
+      <p>Data unavailable</p>
+    </div>
+
+    <div class="day">
+      <h3>WED</h3>
+      <span>🌧️</span>
+      <strong>--°</strong>
+      <p>Data unavailable</p>
+    </div>
+
+    <div class="day">
+      <h3>THU</h3>
+      <span>☁️</span>
+      <strong>--°</strong>
+      <p>Data unavailable</p>
+    </div>
+
+    <div class="day">
+      <h3>FRI</h3>
+      <span>🌦️</span>
+      <strong>--°</strong>
+      <p>Data unavailable</p>
+    </div>
+
+    <div class="day">
+      <h3>SAT</h3>
+      <span>☀️</span>
+      <strong>--°</strong>
+      <p>Data unavailable</p>
+    </div>
+
+    <div class="day">
+      <h3>SUN</h3>
+      <span>⛅</span>
+      <strong>--°</strong>
+      <p>Data unavailable</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section updates">
+
+  <div class="section-title">
+    <p>📰 WEATHER KNOWLEDGE</p>
+    <h2>Latest Weather Updates</h2>
+  </div>
+
+  <div class="news-grid">
+
+    <article>
+      <span>🌧️</span>
+      <h3>Rainfall Update</h3>
+      <p>
+        Rainfall depends on moisture, atmospheric circulation,
+        pressure systems and local weather conditions.
+      </p>
+      <a href="#about">Read More →</a>
+    </article>
+
+    <article>
+      <span>🌪️</span>
+      <h3>Low Pressure Systems</h3>
+      <p>
+        Low-pressure systems can influence cloud formation,
+        rainfall and wind patterns.
+      </p>
+      <a href="#about">Learn More →</a>
+    </article>
+
+    <article>
+      <span>☁️</span>
+      <h3>Cloud Monitoring</h3>
+      <p>
+        Satellite and radar observations help meteorologists
+        monitor developing weather conditions.
+      </p>
+      <a href="#about">Learn More →</a>
+    </article>
+
+  </div>
+
+</section>
+
+<section id="about" class="section about">
+
+  <div class="about-content">
+    <p>👋 ABOUT THE PROJECT</p>
+
+    <h2>Welcome to<br><span>Ankit Mausam</span></h2>
+
+    <p>
+      Ankit Mausam is an independent weather-information project
+      created to present weather concepts and updates in a simple,
+      easy-to-understand format.
+    </p>
+
+    <p>
+      Weather information should always be checked against official
+      meteorological sources, especially during severe weather.
+    </p>
+
+    <a
+      class="btn"
+      href="https://mausam.imd.gov.in/"
+      target="_blank">
+      Official IMD Website
+    </a>
+  </div>
+
+</section>
+<section class="section forecast">
+
+  <div class="section-title">
+    <p>⏱️ HOURLY FORECAST</p>
+    <h2>Next 24 Hours</h2>
+  </div>
+
+  <div class="hourly-grid" id="hourlyForecast"></div>
+
+</section>
+
+
+<section class="section forecast">
+
+  <div class="section-title">
+    <p>📅 7-DAY FORECAST</p>
+    <h2>Bahraich Weather Outlook</h2>
+  </div>
+
+  <div class="forecast-grid" id="dailyForecast"></div>
+
+</section>
+
+</main>
+
+<footer>
+  <h2>🌦️ Ankit Mausam</h2>
+  <p>Independent weather-information project</p>
+
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#weather">Weather</a>
+    <a href="#alerts">Alerts</a>
+    <a href="#about">About</a>
+  </div>
+
+  <p class="copyright">
+    © <span id="year"></span> Ankit Mausam. All rights reserved.
+  </p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
