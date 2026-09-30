@@ -1,140 +1,117 @@
-// ==========================================
-// ROYAL STAY - JAVASCRIPT
-// ==========================================
+// Mobile menu
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
 
 
-// Get booking form
-const bookingForm = document.querySelector(".booking form");
+// Close menu after clicking a link
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+});
 
 
-// ==========================================
-// BOOKING FORM
-// ==========================================
+// Contact form
 
-bookingForm.addEventListener("submit", function (event) {
+const form = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
+
+form.addEventListener("submit", function(event) {
 
     event.preventDefault();
 
-    const name = document.querySelector("#name").value.trim();
-    const email = document.querySelector("#email").value.trim();
-    const checkin = document.querySelector("#checkin").value;
-    const checkout = document.querySelector("#checkout").value;
-    const room = document.querySelector("#room").value;
+    const name = document.getElementById("name").value;
 
+    formMessage.textContent =
+        `Thank you ${name}! Your message has been received.`;
 
-    // Check empty fields
-    if (
-        name === "" ||
-        email === "" ||
-        checkin === "" ||
-        checkout === "" ||
-        room === ""
-    ) {
-        alert("Please fill all the booking details.");
-        return;
-    }
-
-
-    // Check dates
-    const checkInDate = new Date(checkin);
-    const checkOutDate = new Date(checkout);
-
-
-    if (checkOutDate <= checkInDate) {
-        alert("Check-out date must be after check-in date.");
-        return;
-    }
-
-
-    // Success message
-    alert(
-        `Thank you, ${name}!\n\n` +
-        `Your booking request for a ${room.replace("-", " ")} has been received.\n\n` +
-        `We will contact you soon at ${email}.`
-    );
-
-
-    // Reset form
-    bookingForm.reset();
-
+    form.reset();
 });
 
 
-// ==========================================
-// SET MINIMUM CHECK-IN DATE
-// ==========================================
+// Current year
 
-const checkinInput = document.querySelector("#checkin");
-const checkoutInput = document.querySelector("#checkout");
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+    // PROJECT FILTER
 
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project");
 
-// Get today's date
-const today = new Date();
+filterButtons.forEach(button => {
 
-const year = today.getFullYear();
-const month = String(today.getMonth() + 1).padStart(2, "0");
-const day = String(today.getDate()).padStart(2, "0");
+    button.addEventListener("click", () => {
 
-const todayDate = `${year}-${month}-${day}`;
+        const filter = button.dataset.filter;
 
+        // Active button
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
 
-// Prevent past dates
-checkinInput.min = todayDate;
-checkoutInput.min = todayDate;
-
-
-// ==========================================
-// CHECK-OUT DATE UPDATE
-// ==========================================
-
-checkinInput.addEventListener("change", function () {
-
-    checkoutInput.min = this.value;
-
-});
+        button.classList.add("active");
 
 
-// ==========================================
-// SCROLL REVEAL
-// ==========================================
+        // Show / hide projects
+        projects.forEach(project => {
 
-const sections = document.querySelectorAll("section");
+            const category = project.dataset.category;
 
-
-const observer = new IntersectionObserver(
-    function (entries) {
-
-        entries.forEach(function (entry) {
-
-            if (entry.isIntersecting) {
-
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-
+            if (filter === "all" || category === filter) {
+                project.style.display = "block";
+            } else {
+                project.style.display = "none";
             }
 
         });
 
-    },
-    {
-        threshold: 0.12
-    }
-);
-
-
-sections.forEach(function (section) {
-
-    section.style.opacity = "0";
-    section.style.transform = "translateY(25px)";
-    section.style.transition = "opacity 0.7s ease, transform 0.7s ease";
-
-    observer.observe(section);
+    });
 
 });
 
 
-// ==========================================
-// WELCOME MESSAGE
-// ==========================================
+// IMAGE PREVIEW
 
-console.log("Royal Stay website loaded successfully!");
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const closeModal = document.getElementById("closeModal");
+
+const viewButtons = document.querySelectorAll(".view-image");
+
+viewButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const image = button.dataset.image;
+
+        modalImage.src = image;
+
+        modal.classList.add("show");
+
+    });
+
+});
+
+
+// CLOSE MODAL
+
+closeModal.addEventListener("click", () => {
+    modal.classList.remove("show");
+});
+
+
+// CLICK OUTSIDE IMAGE
+
+modal.addEventListener("click", (event) => {
+
+    if (event.target === modal) {
+        modal.classList.remove("show");
+    }
+
+});
