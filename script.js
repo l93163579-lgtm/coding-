@@ -1,117 +1,96 @@
-// Mobile menu
-
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.querySelector(".nav-links");
-
-menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
-
-
-// Close menu after clicking a link
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-    });
-});
+const hearts = [
+    "❤️",
+    "💖",
+    "💕",
+    "💗",
+    "💓",
+    "✨"
+];
 
 
-// Contact form
+function createHeart(){
 
-const form = document.getElementById("contactForm");
-const formMessage = document.getElementById("formMessage");
+    const heart = document.createElement("div");
 
-form.addEventListener("submit", function(event) {
+    heart.className = "floating-heart";
 
-    event.preventDefault();
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random() * hearts.length
+            )
+        ];
 
-    const name = document.getElementById("name").value;
+    heart.style.left =
+        Math.random() * 100 + "%";
 
-    formMessage.textContent =
-        `Thank you ${name}! Your message has been received.`;
+    heart.style.fontSize =
+        (16 + Math.random() * 25) + "px";
 
-    form.reset();
-});
+    heart.style.animationDuration =
+        (3 + Math.random() * 4) + "s";
 
+    document.body.appendChild(heart);
 
-// Current year
+    setTimeout(() => {
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-    // PROJECT FILTER
+        heart.remove();
 
-const filterButtons = document.querySelectorAll(".filter-btn");
-const projects = document.querySelectorAll(".project");
+    },7000);
 
-filterButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        const filter = button.dataset.filter;
-
-        // Active button
-        filterButtons.forEach(btn => {
-            btn.classList.remove("active");
-        });
-
-        button.classList.add("active");
+}
 
 
-        // Show / hide projects
-        projects.forEach(project => {
-
-            const category = project.dataset.category;
-
-            if (filter === "all" || category === filter) {
-                project.style.display = "block";
-            } else {
-                project.style.display = "none";
-            }
-
-        });
-
-    });
-
-});
+setInterval(createHeart,700);
 
 
-// IMAGE PREVIEW
+/* MESSAGE BUTTON */
 
-const modal = document.getElementById("imageModal");
-const modalImage = document.getElementById("modalImage");
-const closeModal = document.getElementById("closeModal");
-
-const viewButtons = document.querySelectorAll(".view-image");
-
-viewButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        const image = button.dataset.image;
-
-        modalImage.src = image;
-
-        modal.classList.add("show");
-
-    });
-
-});
+const memoryBtn =
+    document.getElementById("memoryBtn");
 
 
-// CLOSE MODAL
+memoryBtn.addEventListener(
+    "click",
+    function(){
 
-closeModal.addEventListener("click", () => {
-    modal.classList.remove("show");
-});
+        for(let i = 0; i < 25; i++){
 
+            setTimeout(() => {
 
-// CLICK OUTSIDE IMAGE
+                createHeart();
 
-modal.addEventListener("click", (event) => {
+            }, i * 80);
 
-    if (event.target === modal) {
-        modal.classList.remove("show");
+        }
+
+        memoryBtn.innerText =
+            "Memory Created ❤️";
+
     }
+);
 
-});
+
+/* SCROLL EFFECT */
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        const navbar =
+            document.querySelector(".navbar");
+
+        if(window.scrollY > 50){
+
+            navbar.style.background =
+                "rgba(5,1,7,.92)";
+
+        }else{
+
+            navbar.style.background =
+                "rgba(10,2,10,.65)";
+
+        }
+
+    }
+);
