@@ -1,96 +1,117 @@
-const hearts = [
-    "❤️",
-    "💖",
-    "💕",
-    "💗",
-    "💓",
-    "✨"
-];
+// Mobile menu
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
 
 
-function createHeart(){
+// Close menu after clicking a link
 
-    const heart = document.createElement("div");
-
-    heart.className = "floating-heart";
-
-    heart.innerHTML =
-        hearts[
-            Math.floor(
-                Math.random() * hearts.length
-            )
-        ];
-
-    heart.style.left =
-        Math.random() * 100 + "%";
-
-    heart.style.fontSize =
-        (16 + Math.random() * 25) + "px";
-
-    heart.style.animationDuration =
-        (3 + Math.random() * 4) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-
-        heart.remove();
-
-    },7000);
-
-}
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+});
 
 
-setInterval(createHeart,700);
+// Contact form
+
+const form = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+
+    formMessage.textContent =
+        `Thank you ${name}! Your message has been received.`;
+
+    form.reset();
+});
 
 
-/* MESSAGE BUTTON */
+// Current year
 
-const memoryBtn =
-    document.getElementById("memoryBtn");
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+    // PROJECT FILTER
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project");
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const filter = button.dataset.filter;
+
+        // Active button
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
 
 
-memoryBtn.addEventListener(
-    "click",
-    function(){
+        // Show / hide projects
+        projects.forEach(project => {
 
-        for(let i = 0; i < 25; i++){
+            const category = project.dataset.category;
 
-            setTimeout(() => {
+            if (filter === "all" || category === filter) {
+                project.style.display = "block";
+            } else {
+                project.style.display = "none";
+            }
 
-                createHeart();
+        });
 
-            }, i * 80);
+    });
 
-        }
+});
 
-        memoryBtn.innerText =
-            "Memory Created ❤️";
 
+// IMAGE PREVIEW
+
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const closeModal = document.getElementById("closeModal");
+
+const viewButtons = document.querySelectorAll(".view-image");
+
+viewButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const image = button.dataset.image;
+
+        modalImage.src = image;
+
+        modal.classList.add("show");
+
+    });
+
+});
+
+
+// CLOSE MODAL
+
+closeModal.addEventListener("click", () => {
+    modal.classList.remove("show");
+});
+
+
+// CLICK OUTSIDE IMAGE
+
+modal.addEventListener("click", (event) => {
+
+    if (event.target === modal) {
+        modal.classList.remove("show");
     }
-);
 
-
-/* SCROLL EFFECT */
-
-window.addEventListener(
-    "scroll",
-    function(){
-
-        const navbar =
-            document.querySelector(".navbar");
-
-        if(window.scrollY > 50){
-
-            navbar.style.background =
-                "rgba(5,1,7,.92)";
-
-        }else{
-
-            navbar.style.background =
-                "rgba(10,2,10,.65)";
-
-        }
-
-    }
-);
+});
